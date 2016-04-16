@@ -1,0 +1,40 @@
+{
+  "name": "package-json-lint",
+  "version": "0.1.0",
+  "description": "CLI app for linting package.json files.",
+  "keywords": [
+    "lint",
+    "linter",
+    "package.json",
+    "audit",
+    "auditor"
+  ],
+  "homepage": "https://github.com/tclindner/package-json-lint",
+  "author": "Thomas Lindner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tclindner/package-json-lint"
+  },
+  "bugs": {
+    "url": "https://github.com/tclindner/package-json-lint/issues"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.5",
+    "grunt-bump": "^0.7.0",
+    "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-jshint": "^0.12.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-env": "^0.4.4",
+    "grunt-istanbul": "^0.7.0",
+    "grunt-jscs": "^2.7.0",
+    "grunt-jsonlint": "^1.0.7",
+    "grunt-mocha-test": "^0.12.7",
+    "jshint-stylish": "2.1.0",
+    "mocha": "^2.4.5",
+    "should": "^8.2.2",
+    "sinon": "^1.17.1",
+    "time-grunt": "^1.3.0"
+  },
+  "license": "MIT"
+}
