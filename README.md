@@ -3,6 +3,7 @@
 > A Grunt wrapper for [package-json-lint](https://github.com/tclindner/package-json-lint)
 
 ## Getting Started
+
 This plugin requires Grunt `^1.0.0`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
@@ -20,6 +21,7 @@ grunt.loadNpmTasks('grunt-package-json-lint');
 ## The "packagejsonlint" task
 
 ### Overview
+
 In your project's Gruntfile, add a section named `packagejsonlint` to the data object passed into `grunt.initConfig()`.
 
 ```js
@@ -88,6 +90,7 @@ grunt.initConfig({
 ```
 
 #### Custom Options
+
 In this example, the custom options are used to lint package.json files. All warnings will be ignored, but all errors will show across all files.
 
 ```js
@@ -105,10 +108,13 @@ grunt.initConfig({
 ```
 
 ## Contributing
+
 Please see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Release History
-_(Nothing yet)_
+
+* 2016-04-17 - v0.1.0: First release
 
 ## License
+
 Copyright (c) 2016 Thomas Lindner. Licensed under the MIT license.
