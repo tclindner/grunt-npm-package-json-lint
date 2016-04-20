@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     },
     js: {
       files: [
-        "src/**/*.js",
+        "tasks/**/*.js",
         "test/**/*_test.js"
       ],
       tasks: [
