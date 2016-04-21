@@ -7,7 +7,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON("package.json"),
 
     // Configuration to be run (and then tested).
-    packagejsonlint: {
+    npmpackagejsonlint: {
       default_options: {
         options: {
         },

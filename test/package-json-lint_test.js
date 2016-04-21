@@ -22,7 +22,7 @@ let grunt = require("grunt");
     test.ifError(value)
 */
 
-exports.packageJsonLint = {
+exports.npmPackageJsonLint = {
   setUp: function(done) {
     // setup here if necessary
     done();
@@ -31,7 +31,7 @@ exports.packageJsonLint = {
     test.expect(4);
     grunt.util.spawn({
       grunt: true,
-      args: ["packagejsonlint:default_options", "--no-color"]
+      args: ["npmpackagejsonlint:default_options", "--no-color"]
     }, function(err, result) {
       test.ok(result.stdout.indexOf("engines-required") >= 0, "Should throw error for engines-required lint ID");
       test.ok(result.stdout.indexOf("bugs-recommended") >= 0, "Should throw warning for bugs-recommended lint ID");
@@ -44,7 +44,7 @@ exports.packageJsonLint = {
     test.expect(1);
     grunt.util.spawn({
       grunt: true,
-      args: ["packagejsonlint:stoponerror", "--no-color"]
+      args: ["npmpackagejsonlint:stoponerror", "--no-color"]
     }, function(err, result) {
       test.ok(result.stdout.indexOf("engines-required") >= 0, "Should throw error for engines-required lint ID");
       test.done();
@@ -54,7 +54,7 @@ exports.packageJsonLint = {
     test.expect(1);
     grunt.util.spawn({
       grunt: true,
-      args: ["packagejsonlint:stoponwarning", "--no-color"]
+      args: ["npmpackagejsonlint:stoponwarning", "--no-color"]
     }, function(err, result) {
       test.ok(result.stdout.indexOf("engines-required") >= 0, "Should throw error for engines-required lint ID");
       test.done();
@@ -64,7 +64,7 @@ exports.packageJsonLint = {
     test.expect(1);
     grunt.util.spawn({
       grunt: true,
-      args: ["packagejsonlint:showallerrors", "--no-color"]
+      args: ["npmpackagejsonlint:showallerrors", "--no-color"]
     }, function(err, result) {
       test.ok(result.stdout.indexOf("2 lint error(s) found across 4 file(s).  Use --force to continue.") >= 0, "Should show all errors before hard fail.");
       test.done();
@@ -74,7 +74,7 @@ exports.packageJsonLint = {
     test.expect(1);
     grunt.util.spawn({
       grunt: true,
-      args: ["packagejsonlint:showallerrorswithstop", "--no-color"]
+      args: ["npmpackagejsonlint:showallerrorswithstop", "--no-color"]
     }, function(err, result) {
       test.ok(result.stdout.indexOf("2 lint error(s) found across 3 file(s).  Use --force to continue.") >= 0, "Should show all errors before hard fail even if stopon* is set.");
       test.done();
@@ -84,7 +84,7 @@ exports.packageJsonLint = {
     test.expect(1);
     grunt.util.spawn({
       grunt: true,
-      args: ["packagejsonlint:stoponboth", "--no-color"]
+      args: ["npmpackagejsonlint:stoponboth", "--no-color"]
     }, function(err, result) {
       test.ok(result.stdout.indexOf("engines-required") >= 0, "Should throw error for engines-required lint ID");
       test.done();
@@ -94,7 +94,7 @@ exports.packageJsonLint = {
     test.expect(1);
     grunt.util.spawn({
       grunt: true,
-      args: ["packagejsonlint:pass", "--no-color"]
+      args: ["npmpackagejsonlint:pass", "--no-color"]
     }, function(err, result) {
       test.ok(result.stdout.indexOf("1 file(s) lint free.") >= 0, "Should print correct number of lint free files");
       test.done();

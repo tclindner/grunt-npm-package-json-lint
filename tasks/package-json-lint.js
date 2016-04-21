@@ -1,11 +1,11 @@
 "use strict";
 
 let chalk = require("chalk");
-let PackageJsonLint = require("npm-package-json-lint");
+let NpmPackageJsonLint = require("npm-package-json-lint");
 let Reporter = require("./reporter/Reporter");
 
 module.exports = function(grunt) {
-  grunt.registerMultiTask("packagejsonlint", "A package.json linter for Node.js projects", function() {
+  grunt.registerMultiTask("npmpackagejsonlint", "A package.json linter for Node.js projects", function() {
     let options = this.options({
       ignorewarnings: false,
       stoponerror: false,
@@ -31,8 +31,8 @@ module.exports = function(grunt) {
       }).forEach(function(filePath) {
         let fileData = grunt.file.readJSON(filePath);
 
-        let packageJsonLint = new PackageJsonLint(fileData, {}, options);
-        let output = packageJsonLint.lint();
+        let npmPackageJsonLint = new NpmPackageJsonLint(fileData, {}, options);
+        let output = npmPackageJsonLint.lint();
 
         let reporter = new Reporter();
 

@@ -18,15 +18,15 @@ Once the plugin has been installed, it may be enabled inside your Gruntfile with
 grunt.loadNpmTasks('grunt-npm-package-json-lint');
 ```
 
-## The "packagejsonlint" task
+## The "npmpackagejsonlint" task
 
 ### Overview
 
-In your project's Gruntfile, add a section named `packagejsonlint` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `npmpackagejsonlint` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  packagejsonlint: {
+  npmpackagejsonlint: {
     options: {
       // Task-specific options go here.
     },
@@ -75,7 +75,7 @@ In this example, the default options are used to lint package.json files.
 
 ```js
 grunt.initConfig({
-  packagejsonlint: {
+  npmpackagejsonlint: {
     options: {
       ignorewarnings: false,
       showallerrors: false,
@@ -95,7 +95,7 @@ In this example, the custom options are used to lint package.json files. All war
 
 ```js
 grunt.initConfig({
-  packagejsonlint: {
+  npmpackagejsonlint: {
     options: {
       ignorewarnings: true,
       showallerrors: true
