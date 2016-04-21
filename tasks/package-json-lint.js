@@ -1,7 +1,7 @@
 "use strict";
 
 let chalk = require("chalk");
-let PackageJsonLint = require("package-json-lint");
+let PackageJsonLint = require("npm-package-json-lint");
 let Reporter = require("./reporter/Reporter");
 
 module.exports = function(grunt) {
@@ -53,7 +53,7 @@ module.exports = function(grunt) {
 
         if (!options.showallerrors) {
           if ((hasErrors && options.stoponerror) || (hasWarnings && options.stoponwarning)) {
-            grunt.fail.warn("Too many package-json-lint errors/warnings.");
+            grunt.fail.warn("Too many npm-package-json-lint errors/warnings.");
           }
         }
 

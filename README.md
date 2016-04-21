@@ -1,6 +1,6 @@
 # grunt-npm-package-json-lint
 
-> A Grunt wrapper for [package-json-lint](https://github.com/tclindner/package-json-lint)
+> A Grunt wrapper for [npm-package-json-lint](https://github.com/tclindner/npm-package-json-lint)
 
 ## Getting Started
 
