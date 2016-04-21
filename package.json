@@ -1,5 +1,5 @@
 {
-  "name": "grunt-package-json-lint",
+  "name": "grunt-npm-package-json-lint",
   "description": "A Grunt wrapper for package-json-lint",
   "version": "0.1.0",
   "keywords": [
