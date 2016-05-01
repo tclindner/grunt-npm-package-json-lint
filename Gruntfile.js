@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     npmpackagejsonlint: {
-      default_options: {
+      defaultOptions: {
         options: {
         },
         files: {
@@ -68,13 +68,13 @@ module.exports = function(grunt) {
           ]
         }
       },
-      showallerrorswithstop: {
+      showallerrswithstop: {
         options: {
           showallerrors: true,
           stoponwarning: true
         },
         files: {
-          "tmp/showallerrorswithstop": [
+          "tmp/showallerrswithstop": [
             "test/fixtures/invalid-one/package.json",
             "test/fixtures/invalid-two/package.json",
             "test/fixtures/invalid-three/package.json"
@@ -112,7 +112,7 @@ module.exports = function(grunt) {
   // Register task for running linters
   grunt.registerTask("lint", [
     "jsonlint",
-    "jshint",
+    "eslint",
     "jscs"
   ]);
 
