@@ -2,6 +2,12 @@
 
 > A Grunt wrapper for [npm-package-json-lint](https://github.com/tclindner/npm-package-json-lint)
 
+[![license](https://img.shields.io/github/license/tclindner/grunt-npm-package-json-lint.svg?maxAge=2592000&style=flat-square)](https://github.com/tclindner/npm-package-json-lint/blob/master/LICENSE)
+[![npm](https://img.shields.io/npm/v/grunt-npm-package-json-lint.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/npm-package-json-lint)
+[![Travis](https://img.shields.io/travis/tclindner/grunt-npm-package-json-lint.svg?maxAge=2592000?style=flat-square)](https://travis-ci.org/tclindner/npm-package-json-lint)
+[![Dependency Status](https://david-dm.org/tclindner/grunt-npm-package-json-lint.svg?style=flat-square)](https://david-dm.org/tclindner/npm-package-json-lint)
+[![devDependency Status](https://david-dm.org/tclindner/grunt-npm-package-json-lint/dev-status.svg?style=flat-square)](https://david-dm.org/tclindner/npm-package-json-lint#info=devDependencies)
+
 ## Getting Started
 
 This plugin requires Grunt `>=0.4.5`
