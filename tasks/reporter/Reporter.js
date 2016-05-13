@@ -1,17 +1,25 @@
-"use strict";
+'use strict';
 
-let chalk = require("chalk");
+const chalk = require('chalk');
 
 class Reporter {
+
+  /**
+   * Write output
+   * @param  {Object} grunt  Grunt object
+   * @param  {Array}  issues Array of issues
+   * @return {undefined}        No return
+   */
   write(grunt, issues) {
-    let issueCount = issues.length;
+    const issueCount = issues.length;
 
     if (issueCount) {
-      for (let issue of issues) {
+      for (const issue of issues) {
         grunt.log.warn(issue);
       }
     }
   }
+
 }
 
 module.exports = Reporter;

@@ -11,6 +11,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [0.4.0] - 2016-05-13
+### Changed
+- Bump dependencies
+- Update to single quotes (ESLint rule: quotes)
+
 ## [0.3.0] - 2016-05-10
 ### Changed
 - Bump dependencies

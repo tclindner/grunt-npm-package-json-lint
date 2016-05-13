@@ -1,18 +1,18 @@
 module.exports = function(grunt) {
 
-  grunt.config("jscs", {
+  grunt.config('jscs', {
     main: {
       options: {
-        config: ".jscsrc"
+        config: '.jscsrc'
       },
       src: [
-        "tasks/**/*.js",
-        "grunt/**/*.js",
-        "test/**/*_test.js",
-        "*.js"
+        'tasks/**/*.js',
+        'grunt/**/*.js',
+        'test/**/*_test.js',
+        '*.js'
       ]
     }
   });
 
-  grunt.loadNpmTasks("grunt-jscs");
+  grunt.loadNpmTasks('grunt-jscs');
 };

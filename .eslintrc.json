@@ -20,7 +20,6 @@
     "no-empty-character-class": "error",
     "no-ex-assign": "error",
     "no-extra-boolean-cast": "error",
-    "no-extra-parens": ["error", "all", { "conditionalAssign": false }],
     "no-extra-semi": "error",
     "no-func-assign": "error",
     "no-invalid-regexp": ["error", {
@@ -60,7 +59,6 @@
     "no-implicit-coercion": "error",
     "no-implicit-globals": "error",
     "no-implied-eval": "error",
-    "no-invalid-this": "error",
     "no-iterator": "error",
     "no-labels": "error",
     "no-lone-blocks": "error",
@@ -129,7 +127,7 @@
     "max-depth": ["error", 4],
     "max-nested-callbacks": ["error", 3],
     "max-params": ["error", 4],
-    "max-statements": ["error", 12],
+    "max-statements": ["error", 16],
     "max-statements-per-line": ["error", { "max": 1 }],
     "new-cap": "error",
     "new-parens": "error",
@@ -155,7 +153,7 @@
     "operator-assignment": ["error", "always"],
     "padded-blocks": ["error", { "classes": "always" }],
     "quote-props": ["error", "consistent"],
-    "quotes": ["error", "double"],
+    "quotes": ["error", "single"],
     "require-jsdoc": ["error", {
       "require": {
         "FunctionDeclaration": true,

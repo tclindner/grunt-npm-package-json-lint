@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
 /* eslint handle-callback-err: "off" */
 
-const grunt = require("grunt");
+const grunt = require('grunt');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -35,12 +35,12 @@ exports.npmPackageJsonLint = {
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ["npmpackagejsonlint:defaultOptions", "--no-color"]
+      args: ['npmpackagejsonlint:defaultOptions', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes("engines-required"), "Should throw error for engines-required lint ID");
-      test.ok(result.stdout.includes("bugs-recommended"), "Should throw warning for bugs-recommended lint ID");
-      test.ok(result.stdout.includes("license-required"), "Should throw error for license-required lint ID");
-      test.ok(result.stdout.includes("homepage-recommended"), "Should throw warning for homepage-recommended lint ID");
+      test.ok(result.stdout.includes('engines-required'), 'Should throw error for engines-required lint ID');
+      test.ok(result.stdout.includes('bugs-recommended'), 'Should throw warning for bugs-recommended lint ID');
+      test.ok(result.stdout.includes('license-required'), 'Should throw error for license-required lint ID');
+      test.ok(result.stdout.includes('homepage-recommended'), 'Should throw warning for homepage-recommended lint ID');
       test.done();
     });
   },
@@ -50,9 +50,9 @@ exports.npmPackageJsonLint = {
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ["npmpackagejsonlint:stoponerror", "--no-color"]
+      args: ['npmpackagejsonlint:stoponerror', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes("engines-required"), "Should throw error for engines-required lint ID");
+      test.ok(result.stdout.includes('engines-required'), 'Should throw error for engines-required lint ID');
       test.done();
     });
   },
@@ -62,9 +62,9 @@ exports.npmPackageJsonLint = {
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ["npmpackagejsonlint:stoponwarning", "--no-color"]
+      args: ['npmpackagejsonlint:stoponwarning', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes("engines-required"), "Should throw error for engines-required lint ID");
+      test.ok(result.stdout.includes('engines-required'), 'Should throw error for engines-required lint ID');
       test.done();
     });
   },
@@ -74,9 +74,9 @@ exports.npmPackageJsonLint = {
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ["npmpackagejsonlint:showallerrors", "--no-color"]
+      args: ['npmpackagejsonlint:showallerrors', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes("2 lint error(s) found across 4 file(s).  Use --force to continue."), "Should show all errors before hard fail.");
+      test.ok(result.stdout.includes('2 lint error(s) found across 4 file(s). Use --force to continue.'), 'Should show all errors before hard fail.');
       test.done();
     });
   },
@@ -86,9 +86,9 @@ exports.npmPackageJsonLint = {
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ["npmpackagejsonlint:showallerrswithstop", "--no-color"]
+      args: ['npmpackagejsonlint:showallerrswithstop', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes("2 lint error(s) found across 3 file(s).  Use --force to continue."), "Should show all errors before hard fail even if stopon* is set.");
+      test.ok(result.stdout.includes('2 lint error(s) found across 3 file(s). Use --force to continue.'), 'Should show all errors before hard fail even if stopon* is set.');
       test.done();
     });
   },
@@ -98,9 +98,9 @@ exports.npmPackageJsonLint = {
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ["npmpackagejsonlint:stoponboth", "--no-color"]
+      args: ['npmpackagejsonlint:stoponboth', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes("engines-required"), "Should throw error for engines-required lint ID");
+      test.ok(result.stdout.includes('engines-required'), 'Should throw error for engines-required lint ID');
       test.done();
     });
   },
@@ -110,9 +110,9 @@ exports.npmPackageJsonLint = {
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ["npmpackagejsonlint:pass", "--no-color"]
+      args: ['npmpackagejsonlint:pass', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes("1 file(s) lint free."), "Should print correct number of lint free files");
+      test.ok(result.stdout.includes('1 file(s) lint free.'), 'Should print correct number of lint free files');
       test.done();
     });
   }

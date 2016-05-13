@@ -1,12 +1,14 @@
-"use strict";
+'use strict';
 
-let chalk = require("chalk");
-let NpmPackageJsonLint = require("npm-package-json-lint");
-let Reporter = require("./reporter/Reporter");
+const chalk = require('chalk');
+const NpmPackageJsonLint = require('npm-package-json-lint');
+const Reporter = require('./reporter/Reporter');
+const noErrorCount = 0;
+const incrementByOne = 1;
 
 module.exports = function(grunt) {
-  grunt.registerMultiTask("npmpackagejsonlint", "A package.json linter for Node.js projects", function() {
-    let options = this.options({
+  grunt.registerMultiTask('npmpackagejsonlint', 'A package.json linter for Node.js projects', function() {
+    const options = this.options({
       ignorewarnings: false,
       stoponerror: false,
       stoponwarning: false,
@@ -18,23 +20,20 @@ module.exports = function(grunt) {
     let totalFileCount = 0;
 
     // Iterate over all specified file groups.
-    this.files.forEach(function(f) {
-      f.src.filter(function(filePath) {
-        if (!grunt.file.exists(filePath)) {
-          grunt.log.warn("Source file " + filePath + " not found.");
+    this.files.forEach(function(file) {
+      file.src.filter(function(filePath) {
+        if (grunt.file.exists(filePath)) {
+          return true;
+        } else {
+          grunt.log.warn(`Source file ${filePath} not found.`);
 
           return false;
-        } else {
-          return true;
         }
 
-      }).forEach(function(filePath) {
-        let fileData = grunt.file.readJSON(filePath);
-
-        let npmPackageJsonLint = new NpmPackageJsonLint(fileData, {}, options);
-        let output = npmPackageJsonLint.lint();
-
-        let reporter = new Reporter();
+      }).forEach((filePath) => {
+        const fileData = grunt.file.readJSON(filePath);
+        const output = new NpmPackageJsonLint(fileData, {}, options).lint();
+        const reporter = new Reporter();
 
         let hasErrors = false;
         let hasWarnings = false;
@@ -51,21 +50,19 @@ module.exports = function(grunt) {
           reporter.write(grunt, output.warnings);
         }
 
-        if (!options.showallerrors) {
-          if ((hasErrors && options.stoponerror) || (hasWarnings && options.stoponwarning)) {
-            grunt.fail.warn("Too many npm-package-json-lint errors/warnings.");
-          }
+        if ((!options.showallerrors) && ((hasErrors && options.stoponerror) || (hasWarnings && options.stoponwarning))) {
+          grunt.fail.warn('Too many npm-package-json-lint errors/warnings.');
         }
 
-        totalFileCount++;
+        totalFileCount += incrementByOne;
       });
 
-      if (totalErrorCount > 0 && !options.showallerrors) {
-        grunt.log.writeln().fail(totalErrorCount + " lint error(s) found across " + totalFileCount + " file(s).");
-      } else if (totalErrorCount > 0 && options.showallerrors) {
-        grunt.fail.warn(totalErrorCount + " lint error(s) found across " + totalFileCount + " file(s). ");
+      if (totalErrorCount > noErrorCount && !options.showallerrors) {
+        grunt.log.writeln().fail(`${totalErrorCount} lint error(s) found across ${totalFileCount} file(s).`);
+      } else if (totalErrorCount > noErrorCount && options.showallerrors) {
+        grunt.fail.warn(`${totalErrorCount} lint error(s) found across ${totalFileCount} file(s).`);
       } else {
-        grunt.log.ok(totalFileCount + " file(s) lint free.");
+        grunt.log.ok(`${totalFileCount} file(s) lint free.`);
       }
     });
   });
