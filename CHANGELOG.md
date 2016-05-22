@@ -11,6 +11,13 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [1.0.0] - 2016-05-22
+### Added
+- configFile option to provide custom .npmpackagejsonlintrc file
+
+### Changed
+- Updated to v1.0.0 of npm-package-json-lint
+
 ## [0.4.0] - 2016-05-13
 ### Changed
 - Bump dependencies

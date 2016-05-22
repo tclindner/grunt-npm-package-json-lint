@@ -10,6 +10,7 @@ module.exports = function(grunt) {
     npmpackagejsonlint: {
       defaultOptions: {
         options: {
+          configFile: 'test/.npmpackagejsonlintrc'
         },
         files: {
           'tmp/default_options': [
@@ -21,6 +22,7 @@ module.exports = function(grunt) {
       },
       ignoreWarnings: {
         options: {
+          configFile: 'test/.npmpackagejsonlintrc',
           ignorewarnings: true
         },
         files: {
@@ -33,6 +35,7 @@ module.exports = function(grunt) {
       },
       stoponerror: {
         options: {
+          configFile: 'test/.npmpackagejsonlintrc',
           stoponerror: true
         },
         files: {
@@ -45,6 +48,7 @@ module.exports = function(grunt) {
       },
       stoponwarning: {
         options: {
+          configFile: 'test/.npmpackagejsonlintrc',
           stoponwarning: true
         },
         files: {
@@ -57,6 +61,7 @@ module.exports = function(grunt) {
       },
       showallerrors: {
         options: {
+          configFile: 'test/.npmpackagejsonlintrc',
           showallerrors: true
         },
         files: {
@@ -70,6 +75,7 @@ module.exports = function(grunt) {
       },
       showallerrswithstop: {
         options: {
+          configFile: 'test/.npmpackagejsonlintrc',
           showallerrors: true,
           stoponwarning: true
         },
@@ -83,6 +89,7 @@ module.exports = function(grunt) {
       },
       stoponboth: {
         options: {
+          configFile: 'test/.npmpackagejsonlintrc',
           stoponwarning: true,
           stoponerror: true
         },
@@ -96,6 +103,7 @@ module.exports = function(grunt) {
       },
       pass: {
         options: {
+          configFile: 'test/.npmpackagejsonlintrc'
         },
         files: {
           'tmp/pass': 'test/fixtures/valid/package.json'

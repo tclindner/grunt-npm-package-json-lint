@@ -45,6 +45,13 @@ grunt.initConfig({
 
 ### Options
 
+#### options.configFile
+
+* Type: `String`
+* Default: ``
+
+.npmpackagejsonlintrc file to use for rules config
+
 #### options.ignorewarnings
 
 * Type: `Boolean`
@@ -103,6 +110,7 @@ In this example, the custom options are used to lint package.json files. All war
 grunt.initConfig({
   npmpackagejsonlint: {
     options: {
+      configFile: '.npmpackagejsonlintrc',
       ignorewarnings: true,
       showallerrors: true
     },

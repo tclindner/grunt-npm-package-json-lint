@@ -30,29 +30,29 @@ exports.npmPackageJsonLint = {
     done();
   },
   defaultOptions(test) {
-    const numAssertions = 4;
+    const numAssertions = 3;
 
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
       args: ['npmpackagejsonlint:defaultOptions', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes('engines-required'), 'Should throw error for engines-required lint ID');
-      test.ok(result.stdout.includes('bugs-recommended'), 'Should throw warning for bugs-recommended lint ID');
-      test.ok(result.stdout.includes('license-required'), 'Should throw error for license-required lint ID');
-      test.ok(result.stdout.includes('homepage-recommended'), 'Should throw warning for homepage-recommended lint ID');
+      test.ok(result.stdout.includes('license-type'), 'Should throw warning for engines-required lint ID');
+      test.ok(result.stdout.includes('name-format'), 'Should throw error for bugs-recommended lint ID');
+      test.ok(result.stdout.includes('version-format'), 'Should throw error for license-required lint ID');
       test.done();
     });
   },
   stoponerror(test) {
-    const numAssertions = 1;
+    const numAssertions = 2;
 
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
       args: ['npmpackagejsonlint:stoponerror', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes('engines-required'), 'Should throw error for engines-required lint ID');
+      test.ok(result.stdout.includes('license-type'), 'Should throw warning for license-type lint ID');
+      test.ok(result.stdout.includes('name-format'), 'Should throw error for name-format lint ID');
       test.done();
     });
   },
@@ -64,7 +64,7 @@ exports.npmPackageJsonLint = {
       grunt: true,
       args: ['npmpackagejsonlint:stoponwarning', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes('engines-required'), 'Should throw error for engines-required lint ID');
+      test.ok(result.stdout.includes('license-type'), 'Should throw warning for license-type lint ID');
       test.done();
     });
   },
@@ -100,7 +100,7 @@ exports.npmPackageJsonLint = {
       grunt: true,
       args: ['npmpackagejsonlint:stoponboth', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes('engines-required'), 'Should throw error for engines-required lint ID');
+      test.ok(result.stdout.includes('license-type'), 'Should throw error for license-type lint ID');
       test.done();
     });
   },
