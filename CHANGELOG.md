@@ -11,6 +11,11 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [1.1.0] - 2016-07-26
+### Changed
+- Bump grunt-eslint to version 19.0.0
+- Move to shared eslint-config-tc module
+
 ## [1.0.0] - 2016-05-22
 ### Added
 - configFile option to provide custom .npmpackagejsonlintrc file
