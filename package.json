@@ -25,21 +25,21 @@
   ],
   "dependencies": {
     "chalk": "^1.1.1",
-    "npm-package-json-lint": "^1.0.0"
+    "npm-package-json-lint": "^1.3.0"
   },
   "devDependencies": {
-    "eslint": "^3.1.1",
-    "eslint-config-tc": "^1.1.0",
-    "eslint-formatter-pretty": "^0.2.1",
+    "eslint": "^3.7.1",
+    "eslint-config-tc": "^1.2.0",
+    "eslint-formatter-pretty": "^1.0.0",
     "grunt": "^1.0.1",
     "grunt-bump": "^0.8.0",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-nodeunit": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
     "grunt-eslint": "^19.0.0",
-    "grunt-jscs": "^2.8.0",
-    "grunt-jsonlint": "^1.0.7",
-    "time-grunt": "^1.3.0"
+    "grunt-jscs": "^3.0.1",
+    "grunt-jsonlint": "^1.1.0",
+    "time-grunt": "^1.4.0"
   },
   "peerDependencies": {
     "grunt": ">=0.4.5"
