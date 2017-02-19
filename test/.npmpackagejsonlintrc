@@ -1,5 +1,7 @@
 {
-  "license-type": "warning",
-  "name-format": "error",
-  "version-format": "error"
+  "rules": {
+    "license-type": "warning",
+    "name-format": "error",
+    "version-format": "error"
+  }
 }
