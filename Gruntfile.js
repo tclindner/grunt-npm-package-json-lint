@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint object-curly-newline: 'off' */
+
 module.exports = function(grunt) {
 
   // Project configuration.
@@ -120,8 +122,7 @@ module.exports = function(grunt) {
   // Register task for running linters
   grunt.registerTask('lint', [
     'jsonlint',
-    'eslint',
-    'jscs'
+    'eslint'
   ]);
 
   // Whenever the 'test' task is run, first clean the 'tmp' dir, then run this

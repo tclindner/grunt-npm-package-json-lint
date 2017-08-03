@@ -11,7 +11,12 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
-## [2.0.0] - 2016-02-18
+
+## [2.1.0] - 2017-08-02
+### Changed
+- Bump dependencies
+
+## [2.0.0] - 2017-02-18
 ### Changed
 - Moved to npm-package-json-lint 2.x.x. Please see the [migration guide](https://github.com/tclindner/npm-package-json-lint/wiki/migrating-from-v1-to-v2) for more information.
 

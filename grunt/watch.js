@@ -15,7 +15,6 @@ module.exports = function(grunt) {
       ],
       tasks: [
         'jshint',
-        'jscs',
         'nodeunit'
       ]
     }

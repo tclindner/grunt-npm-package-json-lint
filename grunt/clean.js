@@ -1,3 +1,5 @@
+/* eslint object-curly-newline: 'off' */
+
 // Cleans the dist directory (deletes all files)
 module.exports = function(grunt) {
 

@@ -7,7 +7,6 @@ module.exports = function(grunt) {
         'grunt/*.json',
         'test/**/*.json',
         '*.json',
-        '.jscsrc',
         '.jshintrc'
       ]
     }

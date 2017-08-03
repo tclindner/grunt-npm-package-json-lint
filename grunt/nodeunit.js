@@ -1,3 +1,5 @@
+/* eslint object-curly-newline: 'off' */
+
 module.exports = function(grunt) {
 
   grunt.config('nodeunit', {
