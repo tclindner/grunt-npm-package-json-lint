@@ -1,3 +1,5 @@
+/* eslint array-bracket-newline: 'off' */
+
 module.exports = function(grunt) {
 
   grunt.config('bump', {

@@ -1,3 +1,5 @@
+/* eslint array-bracket-newline: 'off', array-element-newline: 'off' */
+
 module.exports = function(grunt) {
   grunt.config.set('watch', {
     json: {

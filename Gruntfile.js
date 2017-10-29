@@ -1,6 +1,6 @@
 'use strict';
 
-/* eslint object-curly-newline: 'off' */
+/* eslint object-curly-newline: 'off', array-bracket-newline: 'off', array-element-newline: 'off' */
 
 module.exports = function(grunt) {
 
