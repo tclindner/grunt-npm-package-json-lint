@@ -4,8 +4,8 @@
 
 ### Node
 
-* [Node.js](https://nodejs.org/) - v4.2.0+
-* [npm](https://www.npmjs.com/) - v2.14.7+
+* [Node.js](https://nodejs.org/) - v6.0.0+
+* [npm](https://www.npmjs.com/) - v3.0.0+
 
 ## Install project dependencies
 
@@ -55,15 +55,15 @@ The configuration for Grunt tasks in this project are all in the `grunt/` folder
 Please use the following grunt commands to increment the package's version numbers
 EX: Assume current version is 0.0.1
 
-`grunt bump:patch`
+`npm version patch`
 
 If you run this command the version will increase the patch number (ie 0.0.2)
 
-`grunt bump:minor`
+`npm version minor`
 
 If you run this command the version will increase the minor number (ie 0.1.0)
 
-`grunt bump:major`
+`npm version major`
 
 If you run this command the version will increase the major number (ie 1.0.0)
 

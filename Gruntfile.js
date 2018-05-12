@@ -12,103 +12,65 @@ module.exports = function(grunt) {
     npmpackagejsonlint: {
       defaultOptions: {
         options: {
-          configFile: 'test/.npmpackagejsonlintrc'
+          configFile: './test/.npmpackagejsonlintrc.json'
         },
         files: {
           'tmp/default_options': [
-            'test/fixtures/invalid-one/package.json',
-            'test/fixtures/invalid-two/package.json',
-            'test/fixtures/invalid-three/package.json'
+            './test/fixtures/invalid-one/package.json',
+            './test/fixtures/invalid-two/package.json',
+            './test/fixtures/invalid-three/package.json'
           ]
         }
       },
-      ignoreWarnings: {
+      quiet: {
         options: {
-          configFile: 'test/.npmpackagejsonlintrc',
-          ignorewarnings: true
+          configFile: './test/.npmpackagejsonlintrc.json',
+          quiet: true
         },
         files: {
-          'tmp/ignorewarnings': [
-            'test/fixtures/invalid-one/package.json',
-            'test/fixtures/invalid-two/package.json',
-            'test/fixtures/invalid-three/package.json'
+          'tmp/quiet': [
+            './test/fixtures/invalid-one/package.json',
+            './test/fixtures/invalid-two/package.json',
+            './test/fixtures/invalid-three/package.json'
           ]
         }
       },
-      stoponerror: {
+      maxWarningsOne: {
         options: {
-          configFile: 'test/.npmpackagejsonlintrc',
-          stoponerror: true
+          configFile: './test/.npmpackagejsonlintrc.json',
+          maxWarnings: 0
         },
         files: {
-          'tmp/stoponerror': [
-            'test/fixtures/invalid-one/package.json',
-            'test/fixtures/invalid-two/package.json',
-            'test/fixtures/invalid-three/package.json'
+          'tmp/maxWarningsOne': [
+            './test/fixtures/invalid-one/package.json'
           ]
         }
       },
-      stoponwarning: {
+      maxWarningsTwo: {
         options: {
-          configFile: 'test/.npmpackagejsonlintrc',
-          stoponwarning: true
+          configFile: './test/.npmpackagejsonlintrc.json',
+          maxWarnings: 1
         },
         files: {
-          'tmp/stoponwarning': [
-            'test/fixtures/invalid-one/package.json',
-            'test/fixtures/invalid-two/package.json',
-            'test/fixtures/invalid-three/package.json'
+          'tmp/maxWarningsTwo': [
+            './test/fixtures/invalid-one/package.json'
           ]
         }
       },
-      showallerrors: {
+      empty: {
         options: {
-          configFile: 'test/.npmpackagejsonlintrc',
-          showallerrors: true
+          configFile: './test/.npmpackagejsonlintrc.json'
         },
         files: {
-          'tmp/showallerrors': [
-            'test/fixtures/invalid-one/package.json',
-            'test/fixtures/invalid-two/package.json',
-            'test/fixtures/invalid-three/package.json',
-            'test/fixtures/valid/package.json'
-          ]
-        }
-      },
-      showallerrswithstop: {
-        options: {
-          configFile: 'test/.npmpackagejsonlintrc',
-          showallerrors: true,
-          stoponwarning: true
-        },
-        files: {
-          'tmp/showallerrswithstop': [
-            'test/fixtures/invalid-one/package.json',
-            'test/fixtures/invalid-two/package.json',
-            'test/fixtures/invalid-three/package.json'
-          ]
-        }
-      },
-      stoponboth: {
-        options: {
-          configFile: 'test/.npmpackagejsonlintrc',
-          stoponwarning: true,
-          stoponerror: true
-        },
-        files: {
-          'tmp/stoponboth': [
-            'test/fixtures/invalid-one/package.json',
-            'test/fixtures/invalid-two/package.json',
-            'test/fixtures/invalid-three/package.json'
-          ]
+          'tmp/empty': []
         }
       },
       pass: {
         options: {
-          configFile: 'test/.npmpackagejsonlintrc'
+          configFile: './test/.npmpackagejsonlintrc.json'
         },
         files: {
-          'tmp/pass': 'test/fixtures/valid/package.json'
+          'tmp/pass': './test/fixtures/valid/package.json'
         }
       }
     }

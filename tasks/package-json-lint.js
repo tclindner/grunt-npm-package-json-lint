@@ -1,78 +1,62 @@
 'use strict';
 
 const chalk = require('chalk');
-const NpmPackageJsonLint = require('npm-package-json-lint');
+const CLIEngine = require('npm-package-json-lint').CLIEngine;
 const Reporter = require('./reporter/Reporter');
-const path = require('path');
-const emptyArray = 0;
+const plur = require('plur');
+
 const noErrorCount = 0;
-const incrementByOne = 1;
 
 module.exports = function(grunt) {
   grunt.registerMultiTask('npmpackagejsonlint', 'A package.json linter for Node.js projects', function() {
     const options = this.options({
       configFile: '',
-      ignorewarnings: false,
-      stoponerror: false,
-      stoponwarning: false,
-      showallerrors: false
+      quiet: false,
+      maxWarnings: -1
     });
 
-    let config = {};
+    if (this.filesSrc.length === 0) {
+      grunt.log.writeln(chalk.magenta('No files/patterns specified.'));
 
-    if (options.configFile !== '') {
-      config = path.join(process.cwd(), options.configFile);
+      return true;
     }
 
-    let totalErrorCount = 0;
-    let totalWarningCount = 0;
-    let totalFileCount = 0;
+    const cliEngine = new CLIEngine({configFile: options.configFile});
 
-    // Iterate over all specified file groups.
-    this.files.forEach(function(file) {
-      file.src.filter(function(filePath) {
-        if (grunt.file.exists(filePath)) {
-          return true;
-        } else {
-          grunt.log.warn(`Source file ${filePath} not found.`);
+    let cliResults;
 
-          return false;
-        }
+    try {
+      cliResults = cliEngine.executeOnPackageJsonFiles(this.filesSrc);
+    } catch (err) {
+      grunt.warn(err);
 
-      }).forEach((filePath) => {
-        const fileData = grunt.file.readJSON(filePath);
-        const output = new NpmPackageJsonLint(fileData, config, options).lint();
-        const reporter = new Reporter();
+      return false;
+    }
 
-        let hasErrors = false;
-        let hasWarnings = false;
+    const totalFileCount = cliResults.results.length;
+    const totalErrorCount = cliResults.errorCount;
+    const totalWarningCount = cliResults.warningCount;
 
-        if (output.errors.length > emptyArray) {
-          totalErrorCount += output.errors.length;
-          hasErrors = true;
-          reporter.write(grunt, output.errors);
-        }
+    if (options.quiet) {
+      cliResults.results = CLIEngine.getErrorResults(cliResults.results);
+    }
 
-        if (output.warnings.length > emptyArray && !options.ignorewarnings) {
-          totalWarningCount += output.warnings.length;
-          hasWarnings = true;
-          reporter.write(grunt, output.warnings);
-        }
+    Reporter.write(cliResults, options.quiet);
 
-        if ((!options.showallerrors) && ((hasErrors && options.stoponerror) || (hasWarnings && options.stoponwarning))) {
-          grunt.fail.warn('Too many npm-package-json-lint errors/warnings.');
-        }
+    const tooManyWarnings = options.maxWarnings >= 0 && totalWarningCount > options.maxWarnings;
 
-        totalFileCount += incrementByOne;
-      });
+    if (totalErrorCount === noErrorCount && tooManyWarnings) {
+      grunt.warn(`npm-package-json-lint found too many warnings (maximum: ${options.maxWarnings})`);
 
-      if (totalErrorCount > noErrorCount && !options.showallerrors) {
-        grunt.log.writeln().fail(`${totalErrorCount} lint error(s) found across ${totalFileCount} file(s).`);
-      } else if (totalErrorCount > noErrorCount && options.showallerrors) {
-        grunt.fail.warn(`${totalErrorCount} lint error(s) found across ${totalFileCount} file(s).`);
-      } else {
-        grunt.log.ok(`${totalFileCount} file(s) lint free.`);
-      }
-    });
+      return false;
+    } else if (totalErrorCount > noErrorCount) {
+      grunt.warn(`${totalErrorCount} lint ${plur('error', totalErrorCount)} found across ${totalFileCount} ${plur('file', totalFileCount)}.`);
+
+      return false;
+    } else {
+      grunt.log.ok(`${totalFileCount} ${plur('file', totalFileCount)} lint free.`);
+    }
+
+    return report.errorCount === 0;
   });
 };

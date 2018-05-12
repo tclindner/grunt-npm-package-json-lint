@@ -6,8 +6,7 @@ module.exports = function(grunt) {
         'src/**/*.json',
         'grunt/*.json',
         'test/**/*.json',
-        '*.json',
-        '.jshintrc'
+        '*.json'
       ]
     }
   });

@@ -30,77 +30,73 @@ exports.npmPackageJsonLint = {
     done();
   },
   defaultOptions(test) {
-    const numAssertions = 3;
+    const numAssertions = 7;
 
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
       args: ['npmpackagejsonlint:defaultOptions', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes('license-type'), 'Should throw warning for engines-required lint ID');
-      test.ok(result.stdout.includes('name-format'), 'Should throw error for bugs-recommended lint ID');
-      test.ok(result.stdout.includes('version-format'), 'Should throw error for license-required lint ID');
+      test.ok(result.stdout.includes('license-type'), 'Should throw warning for license-type lint ID');
+      test.ok(result.stdout.includes('name-format'), 'Should throw error for name-format lint ID');
+      test.ok(result.stdout.includes('version-format'), 'Should throw error for version-format lint ID');
+      test.ok(result.stdout.includes('Totals'), 'Should output "Totals" heading');
+      test.ok(result.stdout.includes('2 errors'), 'Should log 2 total errors');
+      test.ok(result.stdout.includes('1 warning'), 'Should log 1 total warning');
+      test.ok(result.stdout.includes('2 lint errors found across 3 files'), 'Should log summary lint');
       test.done();
     });
   },
-  stoponerror(test) {
+  quiet(test) {
+    const numAssertions = 4;
+
+    test.expect(numAssertions);
+    grunt.util.spawn({
+      grunt: true,
+      args: ['npmpackagejsonlint:quiet', '--no-color']
+    }, (err, result) => {
+      test.ok(result.stdout.includes('name-format'), 'Should throw error for name-format lint ID');
+      test.ok(result.stdout.includes('version-format'), 'Should throw error for version-format lint ID');
+      test.ok(result.stdout.includes('Totals'), 'Should output "Totals" heading');
+      test.ok(result.stdout.includes('2 errors'), 'Should log 2 total errors');
+      test.done();
+    });
+  },
+  maxWarningsOne(test) {
     const numAssertions = 2;
 
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ['npmpackagejsonlint:stoponerror', '--no-color']
+      args: ['npmpackagejsonlint:maxWarningsOne', '--no-color']
     }, (err, result) => {
       test.ok(result.stdout.includes('license-type'), 'Should throw warning for license-type lint ID');
-      test.ok(result.stdout.includes('name-format'), 'Should throw error for name-format lint ID');
+      test.ok(result.stdout.includes('npm-package-json-lint found too many warnings (maximum: 0)'), 'Should log max warning');
       test.done();
     });
   },
-  stoponwarning(test) {
-    const numAssertions = 1;
+  maxWarningsTwo(test) {
+    const numAssertions = 2;
 
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ['npmpackagejsonlint:stoponwarning', '--no-color']
+      args: ['npmpackagejsonlint:maxWarningsTwo', '--no-color']
     }, (err, result) => {
       test.ok(result.stdout.includes('license-type'), 'Should throw warning for license-type lint ID');
+      test.ok(result.stdout.includes('1 file lint free.'), 'Should print correct number of lint free files');
       test.done();
     });
   },
-  showallerrors(test) {
+  empty(test) {
     const numAssertions = 1;
 
     test.expect(numAssertions);
     grunt.util.spawn({
       grunt: true,
-      args: ['npmpackagejsonlint:showallerrors', '--no-color']
+      args: ['npmpackagejsonlint:empty', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes('2 lint error(s) found across 4 file(s). Use --force to continue.'), 'Should show all errors before hard fail.');
-      test.done();
-    });
-  },
-  showallerrswithstop(test) {
-    const numAssertions = 1;
-
-    test.expect(numAssertions);
-    grunt.util.spawn({
-      grunt: true,
-      args: ['npmpackagejsonlint:showallerrswithstop', '--no-color']
-    }, (err, result) => {
-      test.ok(result.stdout.includes('2 lint error(s) found across 3 file(s). Use --force to continue.'), 'Should show all errors before hard fail even if stopon* is set.');
-      test.done();
-    });
-  },
-  stoponboth(test) {
-    const numAssertions = 1;
-
-    test.expect(numAssertions);
-    grunt.util.spawn({
-      grunt: true,
-      args: ['npmpackagejsonlint:stoponboth', '--no-color']
-    }, (err, result) => {
-      test.ok(result.stdout.includes('license-type'), 'Should throw error for license-type lint ID');
+      test.ok(result.stdout.includes('No files/patterns specified.'), 'Should print warning that no files/patterns were specified');
       test.done();
     });
   },
@@ -112,7 +108,7 @@ exports.npmPackageJsonLint = {
       grunt: true,
       args: ['npmpackagejsonlint:pass', '--no-color']
     }, (err, result) => {
-      test.ok(result.stdout.includes('1 file(s) lint free.'), 'Should print correct number of lint free files');
+      test.ok(result.stdout.includes('1 file lint free.'), 'Should print correct number of lint free files');
       test.done();
     });
   }

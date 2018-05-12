@@ -12,6 +12,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed
 
 
+## [3.0.0] - 2018-05-12
+### Added
+- Added `quiet` and `maxWarnings` options.
+
+### Changed
+- Moved to npm-package-json-lint 3.x.x. Please see the [migration guide](https://github.com/tclindner/npm-package-json-lint/wiki/migrating-from-v2-to-v3) for more information.
+
+### Removed
+- Dropped support for Node 4 and 5.
+- Removed `ignorewarnings`, `stoponwarning`, and `showallerrors` options.
+
 ## [2.1.0] - 2017-08-02
 ### Changed
 - Bump dependencies

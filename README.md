@@ -52,33 +52,19 @@ grunt.initConfig({
 
 .npmpackagejsonlintrc file to use for rules config
 
-#### options.ignorewarnings
+#### options.quiet
 
 * Type: `Boolean`
 * Default: `false`
 
-Ignores warnings and suppresses all output.
+Report errors only.
 
-#### options.stoponerror
+#### options.maxWarnings
 
-* Type: `Boolean`
-* Default: `false`
+* Type: `Number`
+* Default: `-1` *(means no limit)*
 
-Stops Grunt when the first error is encountered. Use `--force` to force continue.
-
-#### options.stoponwarning
-
-* Type: `Boolean`
-* Default: `false`
-
-Stops Grunt when the first warning is encountered. Use `--force` to force continue.
-
-#### options.showallerrors
-
-* Type: `Boolean`
-* Default: `false`
-
-Shows all errors and warnings before stopping the task. (Overrides `stoponerror` and `stoponwarning`, above.)
+Number of warnings to trigger non-zero exit code.
 
 ### Usage Examples
 
@@ -90,13 +76,11 @@ In this example, the default options are used to lint package.json files.
 grunt.initConfig({
   npmpackagejsonlint: {
     options: {
-      ignorewarnings: false,
-      showallerrors: false,
-      stoponerror: false,
-      stoponwarning: false
+      quiet: false,
+      maxWarnings: -1
     },
     files: {
-      src: ['package.json']
+      src: ['./package.json']
     }
   }
 });
@@ -104,22 +88,31 @@ grunt.initConfig({
 
 #### Custom Options
 
-In this example, the custom options are used to lint package.json files. All warnings will be ignored, but all errors will show across all files.
+In this example, the custom options are used to lint package.json files. All warnings will be suppressed.
 
 ```js
 grunt.initConfig({
   npmpackagejsonlint: {
     options: {
-      configFile: '.npmpackagejsonlintrc',
-      ignorewarnings: true,
-      showallerrors: true
+      configFile: '.npmpackagejsonlintrc.json',
+      quiet: true
     },
     files: {
-      src: ['package.json']
+      src: ['./package.json']
     }
   }
 })
 ```
+
+## Migrating from v2 to v3
+
+The following options have been removed:
+
+* ignorewarnings
+* stoponwarning
+* showallerrors
+
+If you were using `ignorewarnings`, please use `quiet` instead. If you were using `stoponwarning`, please use `maxWarnings` and set the threshold you would like a non-zero exit code to be returned.
 
 ## Contributing
 

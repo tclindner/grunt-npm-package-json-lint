@@ -16,7 +16,7 @@ module.exports = function(grunt) {
         'test/**/*_test.js'
       ],
       tasks: [
-        'jshint',
+        'eslint',
         'nodeunit'
       ]
     }
