@@ -1,9 +1,6 @@
-'use strict';
-
-/* eslint object-curly-newline: 'off', array-bracket-newline: 'off', array-element-newline: 'off' */
+/* eslint global-require: 'off', max-lines-per-function: 'off' */
 
 module.exports = function(grunt) {
-
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -41,9 +38,7 @@ module.exports = function(grunt) {
           maxWarnings: 0
         },
         files: {
-          'tmp/maxWarningsOne': [
-            './test/fixtures/invalid-one/package.json'
-          ]
+          'tmp/maxWarningsOne': ['./test/fixtures/invalid-one/package.json']
         }
       },
       maxWarningsTwo: {
@@ -52,9 +47,7 @@ module.exports = function(grunt) {
           maxWarnings: 1
         },
         files: {
-          'tmp/maxWarningsTwo': [
-            './test/fixtures/invalid-one/package.json'
-          ]
+          'tmp/maxWarningsTwo': ['./test/fixtures/invalid-one/package.json']
         }
       },
       empty: {
@@ -82,21 +75,12 @@ module.exports = function(grunt) {
   require('time-grunt')(grunt);
 
   // Register task for running linters
-  grunt.registerTask('lint', [
-    'jsonlint',
-    'eslint'
-  ]);
+  grunt.registerTask('lint', ['jsonlint', 'eslint']);
 
   // Whenever the 'test' task is run, first clean the 'tmp' dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', [
-    'clean',
-    'nodeunit'
-  ]);
+  grunt.registerTask('test', ['clean', 'nodeunit']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', [
-    'lint',
-    'test'
-  ]);
+  grunt.registerTask('default', ['lint', 'test']);
 };

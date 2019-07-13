@@ -4,7 +4,7 @@
 
 [![license](https://img.shields.io/github/license/tclindner/grunt-npm-package-json-lint.svg?maxAge=2592000&style=flat-square)](https://github.com/tclindner/grunt-npm-package-json-lint/blob/master/LICENSE)
 [![npm](https://img.shields.io/npm/v/grunt-npm-package-json-lint.svg?maxAge=2592000?style=flat-square)](https://www.npmjs.com/package/grunt-npm-package-json-lint)
-[![Travis](https://img.shields.io/travis/tclindner/grunt-npm-package-json-lint.svg?maxAge=2592000?style=flat-square)](https://travis-ci.org/tclindner/grunt-npm-package-json-lint)
+[![CircleCI](https://circleci.com/gh/tclindner/grunt-npm-package-json-lint.svg?style=svg)](https://circleci.com/gh/tclindner/grunt-npm-package-json-lint)
 [![Dependency Status](https://david-dm.org/tclindner/grunt-npm-package-json-lint.svg?style=flat-square)](https://david-dm.org/tclindner/grunt-npm-package-json-lint)
 [![devDependency Status](https://david-dm.org/tclindner/grunt-npm-package-json-lint/dev-status.svg?style=flat-square)](https://david-dm.org/tclindner/grunt-npm-package-json-lint#info=devDependencies)
 
