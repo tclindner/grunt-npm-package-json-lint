@@ -36,8 +36,8 @@
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-nodeunit": "^2.0.0",
     "grunt-contrib-watch": "^1.1.0",
+    "grunt-jsonlint": "^2.0.0",
     "grunt-eslint": "^22.0.0",
-    "grunt-jsonlint": "^1.1.0",
     "time-grunt": "^2.0.0"
   },
   "peerDependencies": {
