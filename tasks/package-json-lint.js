@@ -1,9 +1,7 @@
-'use strict';
-
 const chalk = require('chalk');
-const CLIEngine = require('npm-package-json-lint').CLIEngine;
-const Reporter = require('./reporter/Reporter');
+const {NpmPackageJsonLint} = require('npm-package-json-lint');
 const plur = require('plur');
+const Reporter = require('./reporter/Reporter');
 
 const noErrorCount = 0;
 
@@ -21,27 +19,27 @@ module.exports = function(grunt) {
       return true;
     }
 
-    const cliEngine = new CLIEngine({configFile: options.configFile});
-
-    let cliResults;
+    let results;
 
     try {
-      cliResults = cliEngine.executeOnPackageJsonFiles(this.filesSrc);
+      const npmPackageJsonLint = new NpmPackageJsonLint({
+        patterns: this.filesSrc,
+        configFile: options.configFile,
+        quiet: options.quiet
+      });
+
+      results = npmPackageJsonLint.lint();
     } catch (err) {
       grunt.warn(err);
 
       return false;
     }
 
-    const totalFileCount = cliResults.results.length;
-    const totalErrorCount = cliResults.errorCount;
-    const totalWarningCount = cliResults.warningCount;
+    const totalFileCount = results.results.length;
+    const totalErrorCount = results.errorCount;
+    const totalWarningCount = results.warningCount;
 
-    if (options.quiet) {
-      cliResults.results = CLIEngine.getErrorResults(cliResults.results);
-    }
-
-    Reporter.write(cliResults, options.quiet);
+    Reporter.write(results, options.quiet);
 
     const tooManyWarnings = options.maxWarnings >= 0 && totalWarningCount > options.maxWarnings;
 
@@ -49,14 +47,21 @@ module.exports = function(grunt) {
       grunt.warn(`npm-package-json-lint found too many warnings (maximum: ${options.maxWarnings})`);
 
       return false;
-    } else if (totalErrorCount > noErrorCount) {
-      grunt.warn(`${totalErrorCount} lint ${plur('error', totalErrorCount)} found across ${totalFileCount} ${plur('file', totalFileCount)}.`);
-
-      return false;
-    } else {
-      grunt.log.ok(`${totalFileCount} ${plur('file', totalFileCount)} lint free.`);
     }
 
-    return report.errorCount === 0;
+    if (totalErrorCount > noErrorCount) {
+      grunt.warn(
+        `${totalErrorCount} lint ${plur('error', totalErrorCount)} found across ${totalFileCount} ${plur(
+          'file',
+          totalFileCount
+        )}.`
+      );
+
+      return false;
+    }
+
+    grunt.log.ok(`${totalFileCount} ${plur('file', totalFileCount)} lint free.`);
+
+    return results.errorCount === 0;
   });
 };
