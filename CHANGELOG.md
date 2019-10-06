@@ -11,6 +11,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Removed
 
+## [4.0.0] - 2019-10-06
+### Changed
+- Moved to npm-package-json-lint 4.x.x. Please see the [migration guide](https://npmpackagejsonlint.org/docs/en/v3-to-v4) for more information.
 
 ## [3.0.0] - 2018-05-12
 ### Added
