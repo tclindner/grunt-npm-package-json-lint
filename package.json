@@ -1,7 +1,7 @@
 {
   "name": "grunt-npm-package-json-lint",
   "description": "A Grunt wrapper for npm-package-json-lint",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "keywords": [
     "gruntplugin",
     "lint",
@@ -30,24 +30,25 @@
   },
   "dependencies": {
     "chalk": "^3.0.0",
-    "eslint-plugin-jest": "22.21.0",
     "npm-package-json-lint": "^4.0.0",
     "plur": "^3.1.1"
   },
   "devDependencies": {
-    "eslint": "^6.5.1",
-    "eslint-config-tc": "^8.1.0",
-    "eslint-formatter-pretty": "^3.0.0",
+    "eslint": "^6.7.2",
+    "eslint-config-tc": "^10.0.1",
+    "eslint-formatter-pretty": "^3.0.1",
+    "eslint-plugin-eslint-comments": "^3.1.2",
     "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jest": "23.1.1",
     "eslint-plugin-prettier": "^3.1.1",
     "grunt": "^1.0.4",
     "grunt-cli": "^1.3.2",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-nodeunit": "^2.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-jsonlint": "^2.0.0",
     "grunt-eslint": "^22.0.0",
-    "prettier": "^1.18.2",
+    "grunt-jsonlint": "^2.0.0",
+    "prettier": "^1.19.1",
     "time-grunt": "^2.0.0"
   },
   "peerDependencies": {
