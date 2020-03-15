@@ -47,7 +47,7 @@
     "grunt-contrib-nodeunit": "^2.1.0",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-eslint": "^22.0.0",
-    "grunt-jsonlint": "^2.1.1",
+    "grunt-jsonlint": "^2.1.2",
     "prettier": "^1.19.1",
     "time-grunt": "^2.0.0"
   },
