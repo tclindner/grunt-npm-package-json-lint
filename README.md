@@ -1,3 +1,8 @@
+# Deprecated!
+
+As of April 12th 2020, `grunt-npm-package-json-lint` is fully deprecated. No new changes are planned. Please use `npm-package-json-lint`'s [cli](https://npmpackagejsonlint.org/docs/en/cli) or [Node.js API](https://npmpackagejsonlint.org/docs/en/api) directly instead.
+
+
 # grunt-npm-package-json-lint
 
 > A Grunt wrapper for [npm-package-json-lint](https://github.com/tclindner/npm-package-json-lint)
